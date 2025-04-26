@@ -38,7 +38,19 @@ LocalRAG-LLM-Server 是一个基于 Flask、LangChain 和 Ollama 的本地 RAG�
    cd LocalRAG-LLM-Server
    ```
 
-2. **安装依赖**
+2. **下载 MiniLM-L6-H384-uncased 模型**
+
+   - **推荐来源**：  
+     - **官方 HuggingFace**：[https://huggingface.co/sentence-transformers/mini-lm-l6-v2-h384-uncased](https://huggingface.co/sentence-transformers/mini-lm-l6-v2-h384-uncased)  
+     - **国内镜像站**（加速下载）：[https://hf-mirror.com/sentence-transformers/mini-lm-l6-v2-h384-uncased](https://hf-mirror.com/sentence-transformers/mini-lm-l6-v2-h384-uncased)  
+   - **下载文件**：  
+     需下载以下 3 个核心文件（总大小约 200MB）：  
+     ```
+     config.json
+     pytorch_model.bin
+     vocab.txt
+     ```
+3. **安装依赖**
 
    ```bash
    python3 -m venv venv
@@ -46,33 +58,33 @@ LocalRAG-LLM-Server 是一个基于 Flask、LangChain 和 Ollama 的本地 RAG�
    pip install -r requirements.txt
    ```
 
-3. **配置环境变量或在 app.py 中设定（推荐使用环境变量）**
+4. **配置环境变量或在 app.py 中设定（推荐使用环境变量）**
 
    - `SECRET_KEY`：Flask 会话密钥
    - `ADMIN_USERNAME` / `ADMIN_PASSWORD`：管理员登录凭据
 
-4. **安装并启动 Ollama**
+5. **安装并启动 Ollama**
 
    ```bash
    brew install ollama
    ollama pull deepseek-r1:70b ...
    ```
 
-5. **放置知识库文档**
+6. **放置知识库文档**
 
    将检索文档放在 `docs/knowledge_base.txt` 中，每行一条或一个大文本。
 
-6. **启动服务**
+7. **启动服务**
 
    ```bash
    python app.py
    ```
 
-7. **访问管理后台**
+8. **访问管理后台**
 
    打开浏览器访问 `http://localhost:5000/admin`，使用管理员账号登录。
 
-8. **调用 API**
+9. **调用 API**
 
    - **提交查询**：
 
@@ -95,7 +107,7 @@ LocalRAG-LLM-Server 是一个基于 Flask、LangChain 和 Ollama 的本地 RAG�
      GET /status/<task_id>?token=<user-token>
      ```
 
-9. **使用示例客户端**
+10. **使用示例客户端**
 
    ```bash
    python test.py
