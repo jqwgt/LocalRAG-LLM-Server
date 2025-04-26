@@ -6,7 +6,7 @@ LocalRAG-LLM-Server 是一个基于 Flask、LangChain 和 Ollama 的本地 RAG�
 
 ## 特性
 
-- **多模型管理**：自动检查并启动 Ollama 本地模型（`deepseek-r1:70b`、`qwen2.5:72b`、`glm4:latest`）。
+- **多模型管理**：自动检查并启动 Ollama 本地模型（`deepseek-r1:70b`、`qwen2.5:72b`、`qwq:latest`等）。
 - **RAG 系统**：使用 MiniLM-L6-H384-uncased（配置在 `model/config.json`）构建本地向量数据库检索。
 - **LangChain 集成**：支持 RetrievalQA、AgentType.ZERO_SHOT_REACT_DESCRIPTION 以及自定义 DuckDuckGo 搜索工具。
 - **Flask 后端**：提供 `/query` 和 `/status/<task_id>` RESTful API 接口。
