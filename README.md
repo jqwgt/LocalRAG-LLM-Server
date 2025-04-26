@@ -72,7 +72,7 @@ LocalRAG-LLM-Server 是一个基于 Flask、LangChain 和 Ollama 的本地 RAG�
 
 6. **放置知识库文档**
 
-   将检索文档放在 `docs/knowledge_base.txt` 中，每行一条或一个大文本。
+   类似项目示例的“MyGo知识库”，将检索文档放在 `docs/knowledge_base.txt` 中，每行一条或一个大文本。
 
 7. **启动服务**
 
