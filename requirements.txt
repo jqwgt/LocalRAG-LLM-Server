@@ -1,0 +1,15 @@
+Flask
+langchain
+langchain-ollama
+langchain-community
+faiss-cpu
+pydantic
+numpy
+pandas
+sentence-transformers
+flask_sqlalchemy
+flask_admin
+WTForms==3.1.2
+flask-login flask-wtf
+flask-admin
+duckduckgo-search

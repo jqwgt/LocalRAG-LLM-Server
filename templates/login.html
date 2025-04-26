@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>登录</title>
+</head>
+<body>
+    <h1>登录</h1>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.username.label }}<br>
+            {{ form.username }}
+        </p>
+        <p>
+            {{ form.password.label }}<br>
+            {{ form.password }}
+        </p>
+        <p>{{ form.submit }}</p>
+    </form>
+</body>
+</html>
