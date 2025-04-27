@@ -6,7 +6,7 @@ import time
 API_URL = "http://localhost:5000"  # 替换为实际的 API 地址
 
 # 全局参数，用户可在此修改参数。当参数为 None 时，每次提问前会交互式输入
-token = " "   # 建议填入
+token = "your_token"   # 建议在这里填入 避免每次手动输入
 model = None            # 要使用的模型 默认 None
 enable_search = None    # 是否使用联网默认 None
 use_vector = None       # 是否使用RAG，默认 None
