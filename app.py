@@ -30,7 +30,7 @@ from langchain.agents import initialize_agent, AgentType
 from langchain.tools.base import BaseTool
 from langchain.schema import BaseRetriever
 
-# 新增 DuckDuckGo 搜索工具（基于 langchain 工具接口）
+#  DuckDuckGo 搜索工具（基于 langchain 工具接口）
 from langchain.tools.base import BaseTool
 
 warnings.filterwarnings("ignore", category=DeprecationWarning)
@@ -39,7 +39,7 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 app = Flask(__name__)
 CORS(app)  # 允许所有跨域请求
 
-# 配置数据库（SQLite 示例）
+# 配置数据库（SQLite ）
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # 配置 Flask-Admin需要的 secret key
@@ -234,7 +234,7 @@ logger = logging.getLogger(__name__)
 
 
 # ---------------------------
-# 新增 DuckDuckGo 搜索工具（免费 API）
+# 新增 DuckDuckGo 搜索工具 可更换为其它api
 # ---------------------------
 class DuckDuckGoSearchTool(BaseTool):
     name: str = "DuckDuckGoSearch"
