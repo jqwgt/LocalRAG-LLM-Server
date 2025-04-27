@@ -10,69 +10,25 @@ from threading import Thread
 
 from flask import Flask, request, jsonify, redirect, url_for, flash, render_template
 from flask_cors import CORS
-
-# 新增：数据库和管理界面
 from flask_sqlalchemy import SQLAlchemy
-from flask_admin import Admin
+from flask_admin import Admin, AdminIndexView
 from flask_admin.contrib.sqla import ModelView
+from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
+from flask_wtf import FlaskForm
+from wtforms.validators import DataRequired
+from wtforms import StringField, PasswordField, SubmitField
+from werkzeug.security import generate_password_hash, check_password_hash
+from os import environ
 
-# 导入原有模型相关库（假设这些库均已安装）
-from langchain_ollama import OllamaLLM
-from langchain_community.vectorstores import FAIimport warnings
-import os
-import subprocess
-import time
-import uuid
-import logging
-import requests
-from datetime import datetime
-from threading import Thread
-
-from flask import Flask, request, jsonify, redirect, url_for, flash, render_template
-from flask_cors import CORS
-
-# 新增：数据库和管理界面
-from flask_sqlalchemy import SQLAlchemy
-from flask_admin import Admin
-from flask_admin.contrib.sqla import ModelView
-
-# 导入原有模型相关库（假设这些库均已安装）
-from langchain_ollama import OllamaLLM
-from langchain_community.vectorstores import FAIimport warnings
-import os
-import subprocess
-import time
-import uuid
-import logging
-import requests
-from datetime import datetime
-from threading import Thread
-
-from flask import Flask, request, jsonify, redirect, url_for, flash, render_template
-from flask_cors import CORS
-
-# 新增：数据库和管理界面
-from flask_sqlalchemy import SQLAlchemy
-from flask_admin import Admin
-from flask_admin.contrib.sqla import ModelView
-
-# 导入原有模型相关库（假设这些库均已安装）
+# LangChain 及相关模型、工具
 from langchain_ollama import OllamaLLM
 from langchain_community.vectorstores import FAISS
 from langchain.chains import RetrievalQA
 from langchain_community.document_loaders import TextLoader
 from langchain_community.embeddings import HuggingFaceEmbeddings
-
 from langchain.agents import initialize_agent, AgentType
-from wtforms.validators import DataRequired
-
-# 用户认证相关库
-from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
-from werkzeug.security import generate_password_hash, check_password_hash
-from os import environ
-from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
-from flask_admin import Admin, AdminIndexView
+from langchain.tools.base import BaseTool
+from langchain.schema import BaseRetriever
 
 # 新增 DuckDuckGo 搜索工具（基于 langchain 工具接口）
 from langchain.tools.base import BaseTool
